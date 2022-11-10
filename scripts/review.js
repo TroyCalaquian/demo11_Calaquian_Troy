@@ -1,26 +1,29 @@
 let hikeID = localStorage.getItem("hikeID");
 
-db.collection("hikes").where("code", "==", hikeID)
-            .get()
-            .then(queryHike => {
-                //see how many results you have got from the query
-                size = queryHike.size;
-                // get the documents of query
-                Hikes = queryHike.docs;
+function getHikeName(hikeCode){
+    db.collection("hikes").where("code", "==", hikeCode)
+           .get()
+           .then(queryHike => {
+               //see how many items are returned from the query with ".size"
+               size = queryHike.size;
+               // get the documents returned from query with ".docs"
+               hikes = queryHike.docs;   
 
-                // We want to have one document per hike, so if the the result of 
-                //the query is more than one, we can check it right now and clean the DB if needed.
-                if (size = 1) {
-                    var thisHike = Hikes[0].data();
-                    name = thisHike.name;
-                    document.getElementById("HikeName").innerHTML = name;
-                } else {
-                    console.log("Query has more than one data")
-                }
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            });
+               // We want to have one document per hike, so if the the result of 
+               //the query is more than one, we can check it right now and clean the DB if needed.
+               if (size = 1) {
+                   var thisHike = hikes[0].data();
+                   var name = thisHike.name;
+                   document.getElementById("HikeName").innerHTML = name;
+               } else {
+                   console.log("Query has more than one data")
+               }
+           })
+           .catch((error) => {
+               console.log("Error getting documents: ", error);
+           });
+}
+getHikeName(hikeID);
 
 function writeReview() {
     console.log("in")
