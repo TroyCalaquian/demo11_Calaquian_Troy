@@ -1,7 +1,7 @@
 let hikeID = localStorage.getItem("hikeID");
 
 function getHikeName(hikeCode){
-    db.collection("hikes").where("code", "==", hikeCode)
+    db.collection("Hikes").where("code", "==", hikeCode)
            .get()
            .then(queryHike => {
                //see how many items are returned from the query with ".size"
