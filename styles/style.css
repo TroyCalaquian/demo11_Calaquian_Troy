@@ -11,3 +11,34 @@
 .material-icons{
   cursor: pointer;
 }
+
+/*
+* --------------------------------------------
+* These are some styles that I am customizing 
+* to over-ride the default bootstrap ones
+*---------------------------------------------
+*/
+.bg-info {
+  background-color: #FA9500 !important;
+}
+
+.navbar-light .navbar-brand {
+  color: #B17958;
+}
+
+.btn-primary {
+  color: #FA9500;
+  font-size: 150%;
+  background-color: #B17958;
+  border-color: #F78709;
+  border-width: thick
+}
+
+body {
+  background-color: #F2C085;
+}
+
+.navbar-brand{
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 2.25rem;
+}
